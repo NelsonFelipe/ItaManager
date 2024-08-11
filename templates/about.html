@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+    <title>Sobre</title>
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock meta %}
+
+{% block content %}
+
+    <div class="container">
+        <img src="{% static "img/logo.svg" %}" alt="Imagem do Projeto" class="project-image">
+
+        <hr>
+
+        <p class="description">
+            Este site se trata de um sistema desenvolvido com Django, HTML e CSS. 
+            É um projeto para a cadeira de Programação Web ministrada pelo professor Italo Linhares.
+        </p>
+    </div>
+{% endblock content %}

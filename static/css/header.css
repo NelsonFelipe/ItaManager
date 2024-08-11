@@ -1,0 +1,52 @@
+@import 'styles.css';
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    background-color: #042535;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.header-nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    list-style-type: none;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    font-size: 17px;
+    width: 50%;
+    height: 100%;
+}
+
+.header-nav-list li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33%;
+    height: 100%;
+}
+
+.header-nav-list li:hover {
+    background-color: #0DA183;
+}
+
+.header-nav-list li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,46 @@
+{% load static %}
+{% block content %}
+    {% block meta %}
+        <link rel="stylesheet" href=" {% static 'css/footer.css' %} ">
+    {% endblock meta %}
+
+    <footer class="footer">
+
+        <ul class="social-icon">
+
+            <li class="social-icon__item">
+                <a class="social-icon__link" href="#">
+                    <img src="{% static 'img/facebook.png' %}" alt="facebook-icon">
+                </a>
+            </li>
+
+            <li class="social-icon__item">
+                <a class="social-icon__link" href="#">
+                    <img src="{% static 'img/x.png' %}" alt="x-icon">
+                </a>
+            </li>
+
+            <li class="social-icon__item">
+                <a class="social-icon__link" href="#">
+                    <img src="{% static 'img/instagram.png' %}" alt="instagram-icon">
+                </a>
+            </li>
+            
+        </ul>
+        
+        <ul class="menu">
+          <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+    
+        </ul>
+
+        <p>&copy;2024 Nelson Felipe</p>
+        
+      </footer>
+
+{% endblock content %}
+
+

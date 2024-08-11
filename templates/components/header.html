@@ -1,0 +1,18 @@
+{% load static %}
+{% block meta %}
+    <link rel="stylesheet" href="{% static "css/header.css" %}">
+{% endblock meta %} 
+
+{% block header %}
+    <header>
+        <nav class="header-nav"> 
+
+            <ul class="header-nav-list">
+                <li><a href="{% url 'lista_eventos' %}">Lista de eventos</a></li>
+                <li><a href="{% url 'criar_evento' %}">Criar evento</a></li>
+                <li><a href="{% url 'sobre' %}">Sobre</a></li>
+            </ul>
+
+        </nav>
+    </header>
+{% endblock header %}

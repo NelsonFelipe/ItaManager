@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+    <title>Lista de eventos</title>
+    <link rel="stylesheet" href="{% static 'css/event-edit.css' %}">
+{% endblock meta %}
+
+{% block content %}
+
+    <h1>
+        {% if form.instance.pk %}
+            Editar
+        {% else %}
+            Criar
+        {% endif %} 
+            Evento
+    </h1>
+
+    <div class="edit-event-container">
+
+        <form method="post" enctype="multipart/form-data" class="edit-event-form">
+
+            {% csrf_token %}
+
+            <div class="input-img">
+                <label for="{{ form.image.id_for_label }}">{{ form.image.label }}</label>
+                {{ form.image }}
+            </div> 
+
+            {% for field in form %}
+                
+                {% if field.name != "image" %}
+                    <div class="inputs">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                    </div>
+                {% endif %}
+                
+            {% endfor %}
+            
+            <div class="form-btns">
+                <button type="submit" class="btn btn-save">Salvar</button>
+            </div>
+
+        </form>
+
+    </div>
+
+{% endblock content %}

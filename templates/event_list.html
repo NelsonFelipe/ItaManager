@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+    <title>Lista de eventos</title>
+    <link rel="stylesheet" href="{% static 'css/event_list.css' %}">
+{% endblock meta %}
+
+{% block content %}
+
+    <div class="list-header">
+        <h1>Eventos</h1>
+    </div>
+
+        <ul class="event-list">
+            {% for event in events %}
+                                  
+                <li class="card">
+                    <a href="{% url 'detalhe_evento' event.pk %}" class="book-card">
+
+                        <div class="card">
+                            <div class="content-card">
+                                <div class="infos">
+                                    <p class="date">{{ event.start_date|date:"d M Y" }}</p>
+                                    <p class="title">{{ event.title }}</p>
+                                </div>
+                                {% if event.image %}
+                                    <img src="{{ event.image.url }}" alt="article-cover" />
+                                {% else %}
+                                    <img src="{% static 'img/event-default.png' %}" alt="article-cover" />
+                                {% endif %}
+                            </div>
+                        </div>
+                    
+                    </a>
+                </li>
+                    
+            {% endfor %}
+        </ul>
+
+{% endblock content %}
