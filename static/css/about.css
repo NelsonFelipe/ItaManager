@@ -7,26 +7,42 @@ main {
     justify-content: center;
 }
 
-.container {
+.container-about {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 800px;
-
-    padding: 20px;
+    max-width: 700px;
+    padding: 10px;
     text-align: center;
 }
 
-.project-image {
+.logo-image {
     width: 200px;
     height: auto;
+    margin: 20px 0 50px 0;
 }
 
-.project-image img {
+.logo-image img {
     width: 100%;
     height: auto;
     object-fit: cover;
+}
+
+.sub-imgs {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.sub-imgs a {
+    display: block;
+    font-size: 0;
+}
+
+.tek-img {
+    width: 80px;
+    height: 80px;
 }
 
 hr {
@@ -35,8 +51,9 @@ hr {
 }
 
 .description {
-    font-family: Arial, sans-serif;
+
+    max-width: 500px;
     font-size: 18px;
-    color: #333;
     line-height: 1.6;
+    color: #333;
 }

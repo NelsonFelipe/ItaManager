@@ -4,65 +4,74 @@
 {% block meta %}
     <title>Lista de eventos</title>
     <link rel="stylesheet" href="{% static 'css/event-detail.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="{% static 'js/event-detail.js' %}" defer></script>
 {% endblock meta %}
 
 {% block content %}
-
-    <div class="container">
-
-        <div class="image-container">
-            {% if event.image %}
-                <img src="{{ event.image.url}}" alt="Imagem do evento">
-            {% else %}
-                <img src="{% static 'img/event-default.png' %}" alt="Imagem deafult">
-            {% endif %}
-        </div>
-
-        <div class="details">
-            <div class="infos">
-                <h2>{{ event.title }}</h2>
-                <p class="date">
-                    Data: {{ event.start_date|date:"d M Y" }}
-                    {% if event.end_date %}
-                        - {{ event.end_date|date:"d M Y" }}
-                    {% endif %}
-                </p>
-                <p class="price">Preço: {% if event.is_free %}Gratuito{% else %}R$ {{ event.price }}{% endif %}</p>
-                <p class="type">Tipo: {{ event.get_event_type_display }}</p>
-                <p class="location">Local: {{ event.location }}</p>
-                <p class="time">Horário: {{ event.time }}</p>
-                <p class="city">Cidade: {{ event.city }}</p>
-                <p class="slots">
-                    Vagas: 
-                    {% if event.seats %}
-                        {{ event.seats }}
-                    {% else %}
-                        Ilimitado
-                    {% endif %}
-                </p>
-            </div>
-            
-
-            <div class="buttons">
-                <button class="btn edit">
-                    <a href="{% url 'editar_evento' event.pk %}">
-                        <i class="fas fa-edit"></i> 
-                        Editar
-                    </a>
-                </button>
-
-                <form method="post" >
-                    {% csrf_token %}
-                    <button type="submit" name="delete" class="btn delete">
-                        <i class="fas fa-trash"></i> 
-                        Apagar
-                    </button>
-                </form>
-                
-            </div>
-
-        </div>
-
+    <div class="title-container">
+        <h1>Informações do evento</h1>
     </div>
+    
+    <div class="main-container">
+        <div class="container-event">
+
+            <div class="image-container">
+                {% if event.image %}
+                    <img src="{{ event.image.url}}" alt="Imagem do evento">
+                {% else %}
+                    <img src="{% static 'img/event-default.png' %}" alt="Imagem deafult">
+                {% endif %}
+            </div>
+    
+            <div class="details">
+                <div class="infos">
+                    <h2>{{ event.title }}</h2>
+                    <p class="date field-info">
+                        Data: {{ event.start_date|date:"d M Y" }}
+                        {% if event.end_date %}
+                            - {{ event.end_date|date:"d M Y" }}
+                        {% endif %}
+                    </p>
+                    <p class="price field-info">
+                        Preço: 
+                        {% if event.price == 0 or event.price == None %}
+                            Gratuito
+                        {% else %}
+                            R$ {{ event.price }}
+                        {% endif %}
+                    </p>
+                    <p class="type field-info">Tipo: {{ event.get_event_type_display }}</p>
+                    <p class="location field-info">Local: {{ event.location }}</p>
+                    <p class="time field-info">Horário: {{ event.time }}</p>
+                    <p class="city field-info">Cidade: {{ event.city }}</p>
+                    <p class="slots field-info">
+                        Vagas: 
+                        {% if event.seats %}
+                            {{ event.seats }}
+                        {% else %}
+                            Ilimitadas
+                        {% endif %}
+                    </p>
+                </div>
+                
+                {% comment %} colocar a logo no card dos detalhes {% endcomment %}
+                <div class="buttons">
+                    <button class="btn-edit btn">
+                        <a href="{% url 'editar_evento' event.pk %}" class="edit-link">
+                            <img src="{% static "img/edit.svg" %}" alt=""> 
+                        </a>
+                    </button>
+    
+                    <form method="post" >
+                        {% csrf_token %}
+                        <button type="submit" name="delete" class="btn-delete btn" onclick="return confirmDelete()">
+                            <img src="{% static "img/trash.svg" %}" alt=""> 
+                        </button>
+                    </form>
+                    
+                </div> 
+            </div>
+        </div>
+    </div>
+    
 {% endblock content %}

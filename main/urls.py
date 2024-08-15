@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+# todas as rotas estão aqui.
 urlpatterns = [
     path('', views.event_list, name='lista_eventos'),
     path('event/<int:pk>/', views.event_detail, name='detalhe_evento'),

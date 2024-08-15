@@ -11,7 +11,6 @@ class EventForm(forms.ModelForm):
             'start_date',
             'end_date',
             'price',
-            'is_free',
             'location',
             'time',
             'city',
@@ -26,11 +25,23 @@ class EventForm(forms.ModelForm):
             'start_date': 'Data de Início',
             'end_date': 'Data de Fim',
             'price': 'Preço',
-            'is_free': 'É Gratuito',
             'location': 'Local',
             'time': 'Horário',
             'city': 'Cidade',
             'seats': 'Vagas Disponíveis'
+        }
+
+        widgets = {
+            'image': forms.FileInput(),
+            'title': forms.TextInput(attrs={'placeholder': 'Digite o título do evento'}),
+            'event_type': forms.Select(attrs={'placeholder': 'Selecione o tipo de evento'}),
+            'start_date': forms.DateInput(attrs={'placeholder': 'Data de início', 'type': 'date'}),
+            'end_date': forms.DateInput(attrs={'placeholder': 'Data de fim', 'type': 'date'}),
+            'price': forms.NumberInput(attrs={'placeholder': 'Digite o preço'}),
+            'location': forms.TextInput(attrs={'placeholder': 'Digite o local'}),
+            'time': forms.TimeInput(attrs={'placeholder': 'Digite o horário', 'type': 'time'}),
+            'city': forms.TextInput(attrs={'placeholder': 'Digite a cidade'}),
+            'seats': forms.NumberInput(attrs={'placeholder': 'Digite o número de vagas'}),
         }
 
  

@@ -5,16 +5,17 @@ from .forms import EventForm
 def homepage(request):
     return render(request, 'home.html')
 
-# Lista dos eventos
+# view da lista dos eventos
 def event_list(request):
     events = Cultural_Event.objects.all()
  
     return render(request, 'event_list.html', {'events': events})
 
-# Detalhe do evento
+# view dos detalhes do evento
 def event_detail(request, pk):
     event = get_object_or_404(Cultural_Event, pk=pk)
 
+    
     if request.method == "POST":
         #deleta o evento
         if 'delete' in request.POST:
@@ -23,7 +24,7 @@ def event_detail(request, pk):
     
     return render(request, 'event_detail.html', {'event': event})
 
-# Criar um evento
+# View para criar um evento
 def event_new(request):
     if request.method == "POST":
         form = EventForm(request.POST, request.FILES)
@@ -34,7 +35,7 @@ def event_new(request):
         form = EventForm()
     return render(request, 'event_edit.html', {'form': form})
 
-# Editar um evento
+# view para editar um evento
 def event_edit(request, pk):
     event = get_object_or_404(Cultural_Event, pk=pk)
     if request.method == "POST":
@@ -46,6 +47,6 @@ def event_edit(request, pk):
         form = EventForm(instance=event)
     return render(request, 'event_edit.html', {'form': form})
 
-
+# view para a pagina de sobre
 def about(request):
     return render(request, 'about.html')

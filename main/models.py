@@ -7,6 +7,7 @@ class Cultural_Event(models.Model):
         ('orchestra', 'Orquestra'),
         ('musical', 'Musical'),
         ('comedy', 'Show de Humor'),
+        ('other', 'Outro'),
        
     ]
     image = models.ImageField(upload_to='event_images/', null=True, blank=True)
@@ -15,8 +16,7 @@ class Cultural_Event(models.Model):
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    is_free = models.BooleanField(default=False)
-    location = models.CharField(max_length=200)
+    location = models.CharField(max_length=100)
     time = models.TimeField()
     city = models.CharField(max_length=100)
     seats = models.PositiveIntegerField(null=True, blank=True)

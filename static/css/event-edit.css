@@ -1,48 +1,79 @@
 @import 'styles.css';
 
-main {
+/* estilização do titulo */
+.title-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    padding: 30px 0;
+    color: #042535;
 }
 
-.edit-event-container {
-    background-color: #fff;
-    border-radius: 15px;
-    padding: 20px;
-    width: 600px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.title-container h1 {
+    font-size: 30px;
+    font-weight: 500;
 }
 
-.edit-event-container h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-.edit-event-container h2 {
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: #555;
-}
-
-
+/* container principal do formulário */
 .edit-event-form {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    margin-bottom: 50px;
+    border: #0322303d 1px solid;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 3px 2px 3px 2px rgba(95, 95, 95, 0.37);
 }
 
-.input-img,
+.container-img,
 .inputs {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.input-img label,
+/* referente as estilizações da imagem e do preview */
+.container-img label {
+    display: inline-block;
+    cursor: pointer;
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+    background-color: #032230;
+}
+
+.container-img label:hover {
+    outline: 3px solid #0DA183;
+}
+
+.container-img label img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#id_image {
+    display: none;
+}
+
+
+/* fim da estilização da imagem */
+
+
 .inputs label {
-    font-weight: bold;
-    margin-bottom: 5px;
     display: block;
+    font-weight: bold;
+    margin-bottom: 3px;
 }
 
 .input-img input,
@@ -55,21 +86,15 @@ main {
     border-radius: 8px;
 }
 
-.inputs input:focus,
-.inputs select:focus,
-.inputs textarea:focus {
-    border-color: #3498db;
-    outline: none;
-}
-
-/* Botões */
-.form-buttons {
+/* botão */
+.form-btn {
     display: flex;
-    gap: 10px;
-    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
-.btn {
+.btn-save {
     border: none;
     border-radius: 8px;
     padding: 10px 20px;
@@ -79,29 +104,9 @@ main {
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-.btn-save {
-    background-color: #3498db;
+    background-color: #032230;
 }
 
 .btn-save:hover {
-    background-color: #2980b9;
-}
-
-
-
-.btn-back {
-    display: inline-block;
-    margin-top: 20px;
-    background-color: #95a5a6;
-    padding: 10px 20px;
-    border-radius: 8px;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-}
-
-.btn-back:hover {
-    background-color: #7f8c8d;
+    background-color: #0DA183;
 }

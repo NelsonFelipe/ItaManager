@@ -8,16 +8,17 @@
 
 {% block content %}
 
-    <div class="list-header">
+    <div class="title-container">
         <h1>Eventos</h1>
     </div>
-
+    
+    <div class="main-container">
         <ul class="event-list">
             {% for event in events %}
-                                  
+                                    
                 <li class="card">
                     <a href="{% url 'detalhe_evento' event.pk %}" class="book-card">
-
+    
                         <div class="card">
                             <div class="content-card">
                                 <div class="infos">
@@ -37,5 +38,7 @@
                     
             {% endfor %}
         </ul>
+    </div>
+    
 
 {% endblock content %}

@@ -7,11 +7,18 @@
     <header>
         <nav class="header-nav"> 
 
+            <div class="header-logo-place">
+                <img src="{% static "img/logo.svg" %}" alt="logo do projeto" >
+            </div>
+
             <ul class="header-nav-list">
                 <li><a href="{% url 'lista_eventos' %}">Lista de eventos</a></li>
                 <li><a href="{% url 'criar_evento' %}">Criar evento</a></li>
                 <li><a href="{% url 'sobre' %}">Sobre</a></li>
             </ul>
+            <div class="empty-div">
+
+            </div>
 
         </nav>
     </header>
